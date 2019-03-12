@@ -1,0 +1,15 @@
+.list {
+    list-style: none; /*убираем маркеры списка*/
+    margin: 0; /*убираем отступы*/
+    padding-left: 0; /*убираем отступы*/
+    margin-left:auto;
+    margin-right:auto;
+    width:800px;
+}
+a {
+    text-decoration: none; /*убираем подчеркивание текста ссылок*/
+}
+.column {
+    float:left; /*Размещаем список горизонтально для реализации меню*/
+    margin-right:50px; /*Добавляем отступ у пунктов меню*/
+}
