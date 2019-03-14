@@ -1,4 +1,4 @@
-//package com.bookmaker_company.model.dbconnect;
+//package com.bookmaker_company.all.dbconnect;
 //
 //import java.beans.PropertyVetoException;
 //import java.sql.Connection;
