@@ -75,4 +75,15 @@ public class User {
     public void setCashBoxId(UUID cashBoxId) {
         this.cashBoxId = cashBoxId;
     }
+
+    @Override
+    public String toString() {
+        return "id: " + id
+                + " Имя: " + userName + " Пароль: " + password
+                + " Права доступа: " + role
+                + " Полное имя: " + fullName
+                + " email:" + email
+                + " Статус: " + state
+                + " Номер кошелька: " + cashBoxId;
+    }
 }

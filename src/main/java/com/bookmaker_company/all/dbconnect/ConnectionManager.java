@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.mchange.v2.c3p0.DriverManagerDataSource;
 
 public class ConnectionManager {
     private static ConnectionManager dataSource;
@@ -14,10 +15,10 @@ public class ConnectionManager {
         try {
             ResourceBundle resource = ResourceBundle.getBundle("database");
             comboPooledDataSource = new ComboPooledDataSource();
-            comboPooledDataSource.setDriverClass(resource.getString("db.driver"));
-            comboPooledDataSource.setJdbcUrl(resource.getString("db.url"));
-            comboPooledDataSource.setUser(resource.getString("db.user"));
-            comboPooledDataSource.setPassword(resource.getString("db.password"));
+            comboPooledDataSource.setDriverClass(resource.getString("jdbc.driver"));
+            comboPooledDataSource.setJdbcUrl(resource.getString("jdbc.url"));
+            comboPooledDataSource.setUser(resource.getString("jdbc.user"));
+            comboPooledDataSource.setPassword(resource.getString("jdbc.password"));
         } catch (PropertyVetoException ex1) {
             ex1.printStackTrace();
         }

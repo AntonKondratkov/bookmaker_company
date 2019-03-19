@@ -15,23 +15,29 @@ import javax.sql.DataSource;
 import javax.annotation.Resource;
 
 public class UserDAOImpl implements  UserDAO {
+
+    public static void main(String[] args) {
+        UserDAOImpl userDAO = new UserDAOImpl();
+        System.out.println(userDAO.getAll());
+    }
     @Override
     public User getByUsername(String username) {
         return null;
     }
-
+    private User setUserPropertiesFromResultSet(ResultSet resultSet, Connection connection) throws SQLException {
+        User user = new User();
+        user.setFullName(resultSet.getString(2));
+        user.setPassword(resultSet.getString(3));
+        return user;
+    }
     @Override
     public List<User> getAll() {
         List<User> users = new ArrayList<>();
         try (Connection connection = ConnectionManager.getInstance().getConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM company.user")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM user")) {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
-                        User user = new User();
-                        user.setFullName("Tom");
-                        user.setPassword("password");
-                        users.add(user);
-//                        users.add(setUserPropertiesFromResultSet(resultSet, connection));
+                        users.add(setUserPropertiesFromResultSet(resultSet, connection));
                     }
                 }
             } catch (SQLException e1) {
@@ -43,6 +49,8 @@ public class UserDAOImpl implements  UserDAO {
         }
         return users;
     }
+
+
 
     @Override
     public Object getById(UUID id) {
