@@ -22,17 +22,17 @@
     <!--</listener>-->
 
     <!--<servlet>-->
-        <!--<servlet-name>dispatcherServlet</servlet-name>-->
+        <!--<servlet-name>UserController</servlet-name>-->
         <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
-        <!--<init-param>-->
-            <!--<param-name>contextConfigLocation</param-name>-->
-            <!--<param-value>webapp/WEB-INF/mvc-config.xml</param-value>-->
-        <!--</init-param>-->
+        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-name>contextConfigLocation</param-name>&ndash;&gt;-->
+            <!--&lt;!&ndash;<param-value>webapp/WEB-INF/mvc-config.xml</param-value>&ndash;&gt;-->
+        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
         <!--<load-on-startup>1</load-on-startup>-->
     <!--</servlet>-->
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>dispatcherServlet</servlet-name>-->
+        <!--<servlet-name>UserController</servlet-name>-->
         <!--<url-pattern>/</url-pattern>-->
     <!--</servlet-mapping>-->
 
