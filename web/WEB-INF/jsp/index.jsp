@@ -1,15 +1,9 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: 11
-  Date: 09.03.2019
-  Time: 3:43
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%--<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>--%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%--<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>--%>
 <%--<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>--%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -29,6 +23,7 @@
   </head>
 
   <body>
+  <li><a href="${contextPath}/users">Вывести всех пользователей</a></li>
   <%--<a href="${contextPath}/admin/users"/>--%>
   <%--<ul class="list">--%>
     <%--<li class="column"><a href="">Компания</a></li>--%>
@@ -53,12 +48,5 @@
     <%--<option>Значение 5</option>--%>
   <%--</select>--%>
   <%--<p><input type="submit" value="Найти"></p>--%>
-  <ul>
-    <c:forEach var="user" items="${users_list}">
-      <li><a href="user/${user.userName}">${user.userName}</a></li>
-    </c:forEach>
-  </ul>
-  <li><a href="${contextPath}/admin/users">Вывести всех пользователей</a></li>
   </body>
-
 </html>

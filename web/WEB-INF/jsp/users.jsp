@@ -1,16 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 11
-  Date: 17.03.2019
-  Time: 4:46
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Users</title>
 </head>
 <body>
-
+<ul>
+    <c:forEach var="user" items="${users_list}">
+        <li><a href="/users${user.userName}">${user.userName}</a></li>
+    </c:forEach>
+</ul>
 </body>
 </html>

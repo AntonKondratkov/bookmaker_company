@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServlet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -26,11 +25,11 @@ public class UserController {
     @RequestMapping(value = "/")
     public ModelAndView main() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("/index.jsp");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String showUsers(Model m) throws SQLException {
         List<User> users = userService.getAll();
 //        if(users == null) throw new UserNotFound();
