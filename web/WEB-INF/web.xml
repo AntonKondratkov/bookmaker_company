@@ -3,7 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <display-name>mvc-html5-angularjs</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/application-context.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.form</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
 
     <!--<context-param>-->
@@ -14,29 +34,36 @@
     <!--</context-param>-->
 
 
-    <!--<listener>-->
-        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--</listener>-->
+
     <!--<listener>-->
         <!--<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>-->
     <!--</listener>-->
 
+
+            <!--org.springframework.web.servlet.DispatcherServlet-->
+        <!--<init-param>-->
+            <!--<param-name>contextConfigLocation</param-name>-->
+            <!--<param-value>-->
+                <!--WEB-INF/dispatcher-servlet.xml-->
+            <!--</param-value>-->
+        <!--</init-param>-->
+        <!--<load-on-startup>1</load-on-startup>-->
     <!--<servlet>-->
-        <!--<servlet-name>UserController</servlet-name>-->
-        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
-        <!--&lt;!&ndash;<init-param>&ndash;&gt;-->
-            <!--&lt;!&ndash;<param-name>contextConfigLocation</param-name>&ndash;&gt;-->
-            <!--&lt;!&ndash;<param-value>webapp/WEB-INF/mvc-config.xml</param-value>&ndash;&gt;-->
-        <!--&lt;!&ndash;</init-param>&ndash;&gt;-->
+        <!--<servlet-name>Controller</servlet-name>-->
+        <!--<servlet-class>com.bookmaker_company.all.controller.UserController</servlet-class>-->
         <!--<load-on-startup>1</load-on-startup>-->
     <!--</servlet>-->
 
     <!--<servlet-mapping>-->
-        <!--<servlet-name>UserController</servlet-name>-->
-        <!--<url-pattern>/</url-pattern>-->
+        <!--<servlet-name>Controller</servlet-name>-->
+        <!--<url-pattern>/index/*</url-pattern>-->
     <!--</servlet-mapping>-->
 
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    <!--<listener>-->
+        <!--<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--</listener>-->
+
+    <!--<welcome-file-list>-->
+        <!--<welcome-file>index.jsp</welcome-file>-->
+    <!--</welcome-file-list>-->
 </web-app>

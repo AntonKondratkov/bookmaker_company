@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServlet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -19,6 +21,13 @@ public class UserController {
 
     public UserController() {
         this.userService = new UserServiceImpl();
+    }
+
+    @RequestMapping(value = "/")
+    public ModelAndView main() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
