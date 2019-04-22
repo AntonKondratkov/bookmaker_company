@@ -1,8 +1,10 @@
 package com.bookmaker_company.all.dao;
 
+import com.bookmaker_company.all.model.Contact;
 import com.bookmaker_company.all.model.User;
 import com.bookmaker_company.all.dbconnect.ConnectionManager;
 import com.sun.jndi.cosnaming.IiopUrl;
+import org.springframework.web.bind.annotation.PathVariable;
 
 //import javax.swing.tree.RowMapper;
 import java.sql.*;
@@ -21,25 +23,27 @@ public class UserDAOImpl implements UserDAO {
         System.out.println(userDAO.getAll());
     }
     @Override
-    public User getByUsername(String username) {
+    public Contact getByUsername(String username) {
         return null;
     }
-    private User setUserPropertiesFromResultSet(ResultSet resultSet, Connection connection) throws SQLException {
-        User user = new User();
-        user.setUserName(resultSet.getString(2));
-        user.setPassword(resultSet.getString(3));
-        user.setFullName(resultSet.getString(4));
+    private Contact setUserPropertiesFromResultSet(ResultSet resultSet, Connection connection) throws SQLException {
+        Contact contact = new Contact();
+        contact.setUserName(resultSet.getString(2));
+        contact.setPosition(resultSet.getString(3));
+        contact.setInternalPhone(resultSet.getString(4));
+        contact.setMobilePhone(resultSet.getString(5));
+        contact.setEmail(resultSet.getString(6));
 
-        return user;
+        return contact;
     }
     @Override
-    public List<User> getAll() {
-        List<User> users = new ArrayList<>();
+    public List<Contact> getAll() {
+        List<Contact> contacts = new ArrayList<>();
         try (Connection connection = ConnectionManager.getInstance().getConnection()) {
-            try (PreparedStatement preparedStatement = connection.prepareStatement(SQLQueries.GET_ALL_USERS)) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(SQLQueries.GET_ALL_CONTACTS)) {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
-                        users.add(setUserPropertiesFromResultSet(resultSet, connection));
+                        contacts.add(setUserPropertiesFromResultSet(resultSet, connection));
                     }
                 }
             } catch (SQLException e1) {
@@ -49,13 +53,25 @@ public class UserDAOImpl implements UserDAO {
             Logger.getLogger(UserDAOImpl.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
         }
-        return users;
+        return contacts;
     }
 
+    @Override
+    public boolean authentication(String name) {
+        boolean result = false;
+        List<Contact> contacts = getAll();
+        for (Contact contact: contacts) {
+            if(contact.getUserName().equals(name)) {
+                result = true;
+            }
+        }
+        return result;
+    }
 
 
     @Override
     public Object getById(UUID id) {
+
         return null;
     }
 
@@ -73,4 +89,5 @@ public class UserDAOImpl implements UserDAO {
     public void update(Object o) {
 
     }
+
 }

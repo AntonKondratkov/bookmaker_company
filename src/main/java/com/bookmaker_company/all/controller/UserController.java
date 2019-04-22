@@ -8,6 +8,8 @@ import com.bookmaker_company.all.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,4 +39,13 @@ public class UserController {
         return "users";
     }
 
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute User user, Model model) {
+        String page = "error";
+        model.addAttribute("userName", user);
+        boolean result = userService.authentication(user.getUserName());
+        if(result) page = "user";
+        return page;
+    }
 }

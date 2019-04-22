@@ -1,16 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 11
-  Date: 09.03.2019
-  Time: 5:57
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Error</title>
 </head>
 <body>
-
+<h1>Некорректные имя или пароль</h1>
 </body>
 </html>

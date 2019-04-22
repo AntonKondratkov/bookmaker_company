@@ -7,10 +7,6 @@ public class User {
     private String userName;
     private String password;
     private Role role;
-    private String fullName;
-    private String email;
-    private UserState state;
-    private UUID cashBoxId;
 
     public UUID getId() {
         return id;
@@ -44,46 +40,12 @@ public class User {
         this.role = role;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public UserState getState() {
-        return state;
-    }
-
-    public void setState(UserState state) {
-        this.state = state;
-    }
-
-    public UUID getCashBoxId() {
-        return cashBoxId;
-    }
-
-    public void setCashBoxId(UUID cashBoxId) {
-        this.cashBoxId = cashBoxId;
-    }
 
     @Override
     public String toString() {
         return "id: " + id
-                + " Имя: " + userName + " Пароль: " + password
-                + " Права доступа: " + role
-                + " Полное имя: " + fullName
-                + " email:" + email
-                + " Статус: " + state
-                + " Номер кошелька: " + cashBoxId;
+                + " Имя: " + userName
+                + " Пароль: " + password
+                + " Права доступа: " + role;
     }
 }
